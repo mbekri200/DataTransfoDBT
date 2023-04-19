@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: sources
+    database: SHIPS_DATA
+    schema: rowdataschema
+    tables:
+      - name: globalSHIPSTATICROWDATA
+      - name: Ports
+      - name: SHIPDYNAMICROWDATA
+      - name: RawShipsConsoOr
