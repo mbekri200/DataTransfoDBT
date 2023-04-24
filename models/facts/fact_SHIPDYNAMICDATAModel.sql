@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized='incremental',
+    )
+}}
+
 with PreDataDynSuccessive as 
 (SELECT SHIPDYNAMICROWDATA.MMSI, LAG(SHIPDYNAMICROWDATA.EventEnqueuedUtcTime,1,0) OVER (PARTITION BY SHIPDYNAMICROWDATA.MMSI ORDER BY SHIPDYNAMICROWDATA.EventEnqueuedUtcTime) AS horodotage_precedent ,
        SHIPDYNAMICROWDATA.EventEnqueuedUtcTime as horodotage_actuel,

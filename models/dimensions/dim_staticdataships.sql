@@ -1,4 +1,9 @@
-
+{{
+    config(
+        materialized='incremental',
+        unique_key='MMSI'
+    )
+}}
 with StaticShipData as 
  (
      SELECT DISTINCT SHIPSTATICROWDATA.MMSI,

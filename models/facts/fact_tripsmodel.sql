@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized='incremental'
+    )
+}}
+
 with datedeparture as (
 SELECT MMSI , MIN(HORODOTAGE_PRECEDENT) AS DepartureDate
 from {{ ref ('fact_SHIPDYNAMICDATAModel')}}
@@ -63,3 +69,9 @@ SELECT distinct  globalSHIPSTATICROWDATA.MMSI
 )
 
 select * from trips
+{% if is_incremental() %}
+
+  -- this filter will only be applied on an incremental run
+  where DERNIEREDATEDEMESURE > (select max(DERNIEREDATEDEMESURE) from {{ this }})
+
+{% endif %}
