@@ -1,11 +1,16 @@
 version: 2
 
 sources:
+  - name: sourcesais
+    database: SHIPS_DATA
+    schema:  snowpipeschema
+    tables:
+      - name: globalSHIPSTATICROWDATA
+      - name: SHIPDYNAMICROWDATA
+
   - name: sources
     database: SHIPS_DATA
     schema: rowdataschema
     tables:
-      - name: globalSHIPSTATICROWDATA
-      - name: Ports
-      - name: SHIPDYNAMICROWDATA
-      - name: RawShipsConsoOr
+    - name: Ports
+    - name: RawShipsConsoOr

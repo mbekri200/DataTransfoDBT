@@ -28,4 +28,5 @@ DataDynSuccessive as
 )
 
 select * from DataDynSuccessive  
+WHERE QTTECO2EMISE <> 0 
  order by QTTECO2EMISE DESC

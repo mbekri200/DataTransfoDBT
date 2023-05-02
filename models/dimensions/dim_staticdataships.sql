@@ -1,7 +1,8 @@
 {{
     config(
         materialized='incremental',
-        unique_key='MMSI'
+        "unique_key='MMSI'"
+
     )
 }}
 with StaticShipData as 
